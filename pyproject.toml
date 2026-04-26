@@ -1,0 +1,22 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "agentgate"
+version = "0.1.0"
+description = "Agent-native web protocol — expose your backend directly to AI agents"
+requires-python = ">=3.10"
+dependencies = [
+    "fastapi>=0.111",
+    "pydantic>=2.0",
+    "httpx>=0.27",
+    "cachetools>=5.3",
+]
+
+[project.optional-dependencies]
+server = ["uvicorn[standard]>=0.29"]
+dev = ["pytest>=8", "pytest-asyncio>=0.23", "httpx", "uvicorn[standard]"]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
